@@ -38,7 +38,7 @@ body{
 
 .border-bottom{
     background: url('/media/border-bottom.jpg');
-    position:fixed;
+    position:sticky;
     bottom:2rem;
 }
 .footer{
@@ -48,12 +48,10 @@ body{
 }
 
 .pattern-border{
-    position:sticky;
     background-size:contain;
     filter: grayscale(100%);
     min-width:100vw;
     min-height:8vh;
-    display:block;
 }
 
 /* Home page */ 
