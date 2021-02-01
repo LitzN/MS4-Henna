@@ -1,9 +1,32 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
-<h1 class="display-4 text-success">
-    it works!
-</h1>
+<div class="container">
+    <div class="row h-50">
+        <div class="col h-50">
+            <div class="home-img"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2>Welcome to Henna Styles!</h2>
+            <p>Intro Paragraph</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">Shop</div>
+        <div class="col-12 col-md-6">Subscribe</div>
+    </div>
+</div>
 
 {% endblock %}
