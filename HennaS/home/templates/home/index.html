@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
+{% block header_pic %}
+<div class="row">
+    <div class="col">
+        <div class="home-img"></div>
+    </div>
+</div>
+{% endblock %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -12,21 +19,47 @@
 
 {% block content %}
 <div class="container">
-    <div class="row h-50">
-        <div class="col h-50">
+    <div class="row">
+        <div class="col">
             <div class="home-img"></div>
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
-            <h2>Welcome to Henna Styles!</h2>
-            <p>Intro Paragraph</p>
+        <div class="col-10 offset-1">
+            <p class="welcome logo-font pink">Welcome to Henna Styles!</p>
+        </div>
+        <div class="col-10 offset-1" >
+            <p class="welcome-text p-2 text-center">Henna Styles is a henna shop and art community
+                <br>Our shop includes a range of products including original design
+                stencils, top quality henna cones and more! Whether tour a beginner or an expert,
+                you'll be sure to find something to fuel your creativity.
+                <br> Already developed your passion for henna? A subscription is for you! Subscribe 
+                to recieve monthly packages of stencils and tools, vote on your favourite theme for the 
+                next month, join our online community with artists posting designs and sharing tips and tricks.
+            </p>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6">Shop</div>
-        <div class="col-12 col-md-6">Subscribe</div>
+        <div class="col-12 col-md-6 button-center">
+            <a>
+                <div class="button-shop p-2">
+                    <p class="logo-font button-text">Shop</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-md-6 button-center">
+            <a>
+                <div class="button-subscribe p-2">
+                    <p class="logo-font button-text">Subscribe</p>  
+                </div>
+            </a>
+        </div>
     </div>
 </div>
 
+<div class="row">
+        <div class="col-12">
+            <div class="pattern-border border-bottom"></div>
+        </div>
+        </div>
 {% endblock %}

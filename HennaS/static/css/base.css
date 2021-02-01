@@ -7,6 +7,10 @@ body{
     font-family: sans-serif;
 }
 
+.pink{
+    color:#ffb6c1;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -20,16 +24,80 @@ body{
     font-family:'Dancing Script', cursive;
 }
 
+.logo-text{
+    font-size:3rem;
+}
+
 .main-logo-link {
     width: fit-content;
 }
 
 .border-top{
-    background: url('/media/border-top.jpg') no-repeat;
-    background-size:cover;
-    min-width:100vw;
-    min-height:10vh;
+    background: url('/media/border-top.jpg');
 }
+
+.border-bottom{
+    background: url('/media/border-bottom.jpg');
+    position:fixed;
+    bottom:2rem;
+}
+.footer{
+    position:sticky;
+    bottom:0;
+    min-width:100vw;
+}
+
+.pattern-border{
+    position:sticky;
+    background-size:contain;
+    filter: grayscale(100%);
+    min-width:100vw;
+    min-height:8vh;
+    display:block;
+}
+
+/* Home page */ 
+
+.welcome{
+    font-size:5rem;
+}
+
+.welcome-text{
+    font-size:1.2rem;
+}
+
+.home-img{
+    background: url('/media/henna-art.jpg') no-repeat center;
+    background-size:cover;
+    min-height:30vh;
+    min-width:100vw;
+}
+
+.button-shop{
+    background: url('/media/button-shop.png') no-repeat;
+    background-size:contain;
+    min-height:20rem;
+}
+
+.button-subscribe{
+    background: url('/media/button-sub.png') no-repeat;
+    background-size:contain;
+    min-height:20rem;
+}
+
+.button-text{
+    position: absolute;
+    top: 70%;
+    left: 45%;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    transform: translate(-50%, -50%);
+}
+
+.button-center{
+    padding-left:4rem;
+}
+
 /*
 .shop-now-button {
     background: black;
