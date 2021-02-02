@@ -8,7 +8,7 @@
       "price": 3.99,
       "category": 1,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/81fzGjdErvL._AC_SX679_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "traditional-mini-stencil-pack.png"
     }
   },
       {
@@ -20,7 +20,7 @@
       "price": 9.99,
       "category": 1,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/61rfA62DcvL._AC_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "foot-design-pack.jpg"
     }
   },
   {
@@ -32,7 +32,7 @@
       "price": 16.99,
       "category": 1,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/61GYSfR%2BawL._AC_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "stencil-luxe-pack.png"
     }
   },
     {
@@ -44,19 +44,19 @@
       "price": 3.99,
       "category": 1,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/81M1Kxms6qL._AC_SX679_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "floral-mini-stencil-pack.png"
     }
   },
       {
     "pk": 5,
     "model": "products.product",
     "fields": {
-      "name": "Stencils luxe hand design",
+      "name": "Luxe hand stencil pack",
       "description": "Six sheets of assorted style henna elements. Contains 4 sheets of traditional element stencils and 2 full hand stencils.",
       "price": 9.99,
       "category": 1,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/61DCceOgJ6L._AC_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "luxe-hand-stencil-pack.jpg"
     }
   },
   {
@@ -68,7 +68,7 @@
       "price": 4.99,
       "category": 1,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/719n9ojwlTL._AC_SL1000_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "mini-hand-design-pack.png"
     }
   },
         {
@@ -80,7 +80,7 @@
       "price": 9.99,
       "category": 1,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/819%2Bh49pkaL._AC_SX450_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "stencil-standard-pack.png"
     }
   },
   {
@@ -92,7 +92,7 @@
       "price": 14.99,
       "category": 1,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/719gm2aIj1L._AC_SX425_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "eyebrow-stencils.png"
     }
   },
           {
@@ -104,7 +104,7 @@
       "price": 9.99,
       "category": 2,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/61v38YqqEgL._AC_SX522_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "mini-henna-stamps.png"
     }
   },
   {
@@ -116,7 +116,7 @@
       "price": 14.99,
       "category": 2,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/81ir3vJzhxL._AC_SX522_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "mandala-henna-stamps.png"
     }
   },
   {
@@ -128,31 +128,31 @@
       "price": 24.99,
       "category": 2,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/81HmStqVAhL._AC_SY450_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "bracelet-border-henna-stamps.png"
     }
   },
   {
     "pk": 12,
     "model": "products.product",
     "fields": {
-      "name": "Pre-inked thread",
+      "name": "Pre-inked mapping thread",
       "description": "Roll of pre-inked thread for freehand Henna brow mapping",
       "price": 4.99,
       "category": 2,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/51jMUoPAx9L._AC_SY450_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "pre-inked-mapping-thread.png"
     }
   },
   {
     "pk": 13,
     "model": "products.product",
     "fields": {
-      "name": "Empty Cones",
+      "name": "5 pre rolled Empty Cones",
       "description": "5 empty pre-rolled cones for home mix henna",
       "price": 1.99,
       "category": 2,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/41cbcCbrpuL._AC_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "empty-cones.png"
     }
   },
   {
@@ -164,55 +164,55 @@
       "price": 24.99,
       "category": 2,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/61TY%2BjmcmxL._AC_SX522_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "microdesign-kit.png"
     }
   },
   {
     "pk": 15,
     "model": "products.product",
     "fields": {
-      "name": "3 New Fashion House Cones",
+      "name": "New Fashion House Cones (3)",
       "description": "Three henna cones filled with organic henna. From popular brand, New fashion house.",
       "price": 2.99,
       "category": 3,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/61pYfHFMRiL._AC_SY355_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "new-fashion-house-cones-3-pack.png"
     }
   },
    {
     "pk": 16,
     "model": "products.product",
     "fields": {
-      "name": "12 New Fashion House Cones",
-      "description": "Three henna cones filled with organic henna. From popular brand, New fashion house.",
+      "name": "New Fashion House Cones (12)",
+      "description": "Twelve henna cones filled with organic henna. From popular brand, New fashion house.",
       "price": 9.99,
       "category": 3,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/71PWlEyB6wL._AC_SY450_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "new-fashion-house-cones-12-pack.png"
     }
   },
    {
     "pk": 17,
     "model": "products.product",
     "fields": {
-      "name": "12 Kalveri Cones",
+      "name": "Kalveri Cones (12)",
       "description": "12 Organic henna cones from popular Kalveri Brand.",
       "price": 9.99,
       "category": 3,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/71kkKvxw5BL._AC_SY450_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "kalveri-cones-12-pack.png"
     }
   },
    {
     "pk": 18,
     "model": "products.product",
     "fields": {
-      "name": "9 Mix colour cones",
+      "name": "Mixed colour cones (9)",
       "description": "Body art cones include these colours: Black, White, Orange , Magenta, Blue, Purple, Red, Green, Brown ",
       "price": 12.99,
       "category": 3,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/618BS8DunJL._AC_SX679_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "mixed-colour-cones-9-pack.png"
     }
   },
     {
@@ -224,7 +224,7 @@
       "price": 14.99,
       "category": 3,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/61vOjrDLMnL._AC_SY879_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "henna-powder-for-hair.png"
     }
   },
    {
@@ -236,7 +236,7 @@
       "price": 14.99,
       "category": 3,
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/81j6uy3tZ9L._AC_SX450_.jpg",
-      "image": "DP0709201205510679M.jpg"
+      "image": "henna-powder-for-skin.png"
     }
   }
 ]
