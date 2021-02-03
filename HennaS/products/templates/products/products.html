@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header_pic %}
+<div class="row">
+    <div class="col">
+        <div class="home-img"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="buffer"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="home-img"></div>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-12">
+                <div class="pattern-border border-top"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <p class="welcome logo-font pink text-center">Welcome to Henna Styles!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ products }}
+            </div>
+        </div>
+
+<div class="row">
+        <div class="col-12">
+            <div class="pattern-border border-bottom"></div>
+        </div>
+        </div>
+{% endblock %}
