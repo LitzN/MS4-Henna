@@ -5,8 +5,8 @@
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Category</a>
-                <a href="" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
@@ -40,7 +40,7 @@
             <div class="dropdown-menu border-0" aria-labelledby="henna">
                 <a href="{% url 'products' %}?category=cones" class="dropdown-item">Cones</a>
                 <a href="{% url 'products' %}?category=powder" class="dropdown-item">Powders</a>
-                <a href="{% url 'products' %}?category=cones,powder"> All Henna</a>
+                <a href="{% url 'products' %}?category=cones,powder" class="dropdown-item"> All Henna</a>
             </div>
         </li>
     </ul>
