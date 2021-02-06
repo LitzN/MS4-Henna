@@ -15,10 +15,11 @@
                 Stencils
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="stencils">
-                <a href="" class="dropdown-item">Luxe packs</a>
-                <a href="" class="dropdown-item">Mini packs</a>
-                <a href="" class="dropdown-item">Hands/Feet</a>
-                <a href="" class="dropdown-item">Eyebrow</a>
+                <a href="{% url 'products' %}?category=luxe_packs" class="dropdown-item">Luxe packs</a>
+                <a href="{% url 'products' %}?category=mini_packs" class="dropdown-item">Mini packs</a>
+                <a href="{% url 'products' %}?category=hand_feet" class="dropdown-item">Hand and Feet</a>
+                <a href="{% url 'products' %}?category=eyebrow" class="dropdown-item">Eyebrow</a>
+                <a href="{% url 'products' %}?category=eyebrow,hand_feet,mini_packs,luxe_packs" class="dropdown-item">All Stencils</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -26,9 +27,10 @@
                 Tools
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="tools">
-                <a href="" class="dropdown-item">Stamps</a>
-                <a href="" class="dropdown-item">Precision tools</a>
-                <a href="" class="dropdown-item">Eyebrow tools</a>
+                <a href="{% url 'products' %}?category=stamps" class="dropdown-item">Stamps</a>
+                <a href="{% url 'products' %}?category=precision_tools" class="dropdown-item">Precision tools</a>
+                <a href="{% url 'products' %}?category=eyebrow_tools" class="dropdown-item">Eyebrow tools</a>
+                <a href="{% url 'products' %}?category=stamps,precision_tools,eyebrow_tools" class="dropdown-item">All tools</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -36,8 +38,9 @@
                 Henna
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="henna">
-                <a href="" class="dropdown-item">Cones</a>
-                <a href="" class="dropdown-item">Powders</a>
+                <a href="{% url 'products' %}?category=cones" class="dropdown-item">Cones</a>
+                <a href="{% url 'products' %}?category=powder" class="dropdown-item">Powders</a>
+                <a href="{% url 'products' %}?category=cones,powder"> All Henna</a>
             </div>
         </li>
     </ul>
