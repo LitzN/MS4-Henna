@@ -17,7 +17,6 @@ def bag_contents(request):
 
     grand_total = delivery + total
 
-
     contexts = {
         'bag_items': bag_items,
         'total': total,
