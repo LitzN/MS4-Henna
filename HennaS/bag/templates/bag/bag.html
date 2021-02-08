@@ -19,20 +19,26 @@
 
 {% block content %}
 <div class="buffer"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <div class="home-img"></div>
-        </div>
-    </div>
-    <div class="row">
-            <div class="col-12">
-                <div class="pattern-border border-top"></div>
-            </div>
-        </div>
+<div class="container mb-2">
     <div class="row">
         <div class="col-10 offset-1">
             <p class="welcome logo-font pink text-center">Shopping bag</p>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if bag_items %}
+                <div class="table-responsive rounded"></div>
+            {% else %}
+                <p class="lead mb-5">Your bag is empty!</p>
+                <a href="{% url 'products' %}" class="btn btn-lg rounded">
+                    <span>
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase btn-outline-black"> Keep shopping</span>
+                </a>
+            {% endif %}
         </div>
     </div>
 </div>
