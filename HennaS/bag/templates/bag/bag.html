@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 {% block header_pic %}
 <div class="row">
     <div class="col">
@@ -53,7 +54,7 @@
                                     <p class="my-0">${{ item.product.price }}</p>
                                 </td>
                                 <td class="py-3 w-25">
-                                    <form class="update-form" method="POST" action="">
+                                    <form class="update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <div class="input-group">
@@ -83,10 +84,10 @@
                                         </div>
                                     </form>
                                     <a class="update-link text-info"><small>Update</small></a>
-                                    <a class="remove-link text-danger" id="remove_{{ item.item_id }}" data-colour="{{ item.colour }}"><small>Remove</small></a>
+                                    <a class="remove-link text-danger" id="remove_{{ item.item_id }}" data-product_colour="{{ item.colour }}"><small>Remove</small></a>
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">${{ item.product.price }}</p>
+                                    <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -155,9 +156,9 @@
     $('.remove-link').click(function(e){
         var csrfToken = "{{ csrf_token }}"
         var itemId = $(this).attr('id').split('remove_')[1];
-        var colour = $(this).data('colour');
-        var url = `/bag/remove/${itemId}`;
-        var data = {'csrfmiddlewaretoken':csrfToken, 'colour':colour};
+        var colour = $(this).data('product_colour');
+        var url = `/bag/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken':csrfToken, 'product_colour':colour};
 
         $.post(url,data)
          .done(function() {
