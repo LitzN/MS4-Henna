@@ -35,4 +35,4 @@ def __init__(self, *args, **kwargs):
             placeholder = placeholders[field]
         self.fields[field].widget.attrs['placeholder'] = placeholder
         self.field[field].widget.attrs['class'] = 'stripe-style-input'
-        self.field[fields].label = False
+        self.field[field].label = False
