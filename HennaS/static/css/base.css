@@ -128,8 +128,11 @@ body{
     border: 1px solid black !important;
 }
 
-.buffer{
+.home-buffer{
     min-height:2.5rem;
+}
+.buffer{
+    min-height:10rem;
 }
 
 a.category-badge > span.badge:hover{
