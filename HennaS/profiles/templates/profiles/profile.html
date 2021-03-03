@@ -21,7 +21,7 @@
     </div>
 </div>
 {% endblock %}
-
+ 
 {% block content %}
 <div class="buffer"></div>
 
@@ -32,6 +32,22 @@
             <hr>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <p> Default Delivery Information</p>
+            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn float-right"> Update Information</button>
+            </form>
+        </div>
+        <div class="col-12 col-lg-6">
+            <p> Order History</p>
+            {{ orders }}
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-12">
             <div class="pattern-border border-bottom"></div>
