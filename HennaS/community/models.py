@@ -10,7 +10,7 @@ class Post(models.Model):
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
-        return self.heading
+        return str(self.id)
 
 
 class Comment(models.Model):
@@ -20,4 +20,4 @@ class Comment(models.Model):
     body = models.CharField(max_length=250, null=False, blank=False)
 
     def __str__(self):
-        return self.user_profile.name
+        return self.id
