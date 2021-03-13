@@ -24,13 +24,14 @@
     <div class="col-sm-12 col-md-6 col-lg-4 text-center">
         <div class="card" style="width: 18rem;">
             {% if post.image %}
-            <img class="card-img-top" src="{{ post.image }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
             {% endif%}
             <div class="card-body">
                 <h4 class="card-title">{{ post.heading }}</h4>
                 <h6 class="card-subtitle">{{ post.user_profile }}</h6>
                 <p class="card-text">{{ post.body }}</p>
-                <a href="{% url 'delete_post' post.id %}"> Delete</a>
+                <a class="text-danger" href="{% url 'delete_post' post.id %}"> Delete</a>
+                <a href="{% url 'edit_post' post.id %}"> Edit </a>
                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample{{ post.id }}" aria-expanded="false" aria-controls="collapseExample">
                     Add comment
                 </button>
