@@ -84,6 +84,14 @@ body{
     min-width:100vw;
 }
 
+.nav-main-link{
+    font-size:0.5rem;
+}
+
+.nav-link{
+    padding:.5rem .5rem !important;
+}
+
 .button-shop{
     background: url('/media/button-shop.png') no-repeat;
     background-size:contain;
@@ -273,6 +281,10 @@ a.category-badge > span.badge:hover{
     .logo-text{
         font-size:2rem;
     }
+
+    .nav-main-link{
+    font-size:1rem;
+}
 }
 /*-----LAPTOP---------------*/
 @media (min-width: 992px) {

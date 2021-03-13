@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
 from profiles.models import UserProfile
 from .forms import PostForm, CommentForm
@@ -28,8 +29,11 @@ def view_posts(request):
     return render(request, template, context)
 
 
+@login_required
 def add_post(request):
     user = get_object_or_404(UserProfile, user=request.user)
+    if user == 'AnonymousUser':
+        return redirect()
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
