@@ -12,6 +12,12 @@ def view_posts(request):
     template = 'community/view_posts.html'
     posts = Post.objects.all()
     comments = Comment.objects.all()
+    try:
+        user = get_object_or_404(UserProfile, user=request.user)
+    except:
+        user = None
+        messages.info(request, 'You need to log in to add comments/posts.')
+
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -25,6 +31,7 @@ def view_posts(request):
         'posts': posts,
         'form': form,
         'comments': comments,
+        'user': user,
     }
     return render(request, template, context)
 
@@ -32,8 +39,6 @@ def view_posts(request):
 @login_required
 def add_post(request):
     user = get_object_or_404(UserProfile, user=request.user)
-    if user == 'AnonymousUser':
-        return redirect()
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():

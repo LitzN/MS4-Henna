@@ -15,3 +15,7 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('body', 'user_profile', 'for_post')
+
+    body = forms.CharField(
+        label=None, required=True
+    )

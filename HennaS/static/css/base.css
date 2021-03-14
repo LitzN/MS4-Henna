@@ -16,8 +16,32 @@ body{
     color:#ffb6c1;
 }
 
-.btn-pink{
-    
+.white{
+    color:#fff;
+}
+
+.pink-bg {
+    background-color:#ffb6c1;
+}
+
+.gray-bg{
+    background-color:#d6d7d7;
+}
+
+.dark-pink-bg{
+    background-color:#b27f87;
+}
+
+.comment{
+    border-top:#d6d7d7 solid 1px;
+    border-bottom:#d6d7d7 solid 1px;
+    min-width:inherit;
+}
+
+.comment-body{
+    background-color:white;
+    font-size:0.75rem;
+    padding-top:1.5rem;
 }
 
 /* from Bulma */

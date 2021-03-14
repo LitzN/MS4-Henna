@@ -5,7 +5,7 @@ from profiles.models import UserProfile
 class Post(models.Model):
     user_profile = models.ForeignKey(
                                      UserProfile, on_delete=models.CASCADE, null=False, blank=False, related_name='posts')
-    heading = models.CharField(max_length=30, null=False, blank=False)
+    heading = models.CharField(max_length=50, null=False, blank=False)
     body = models.TextField(null=False, blank=False)
     image = models.ImageField(null=True, blank=True)
 

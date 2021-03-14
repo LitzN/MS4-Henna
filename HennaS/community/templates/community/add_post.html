@@ -15,14 +15,14 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-12 text-center">
+    <div class="col-10 offset-1 text-center">
         <form class="mt-3" action="" method="POST" id="PostForm" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.heading | as_crispy_field }}
                 {{ form.body | as_crispy_field }}
-                {{ form.image }}
+                <div id="#new-image" class="mt-5">{{ form.image }}</div>
                 <input type="hidden" name="user_profile" value="{{ user.id }}">
-                <button class="btn btn-default float-right">Add Post</button>
+                <button class="btn btn-default float-right border-black">Add Post <i class="fas fa-plus pink"></i></button>
         </form>
     </div>
 </div>
@@ -36,4 +36,9 @@
             <div class="pattern-border border-bottom mt-3"></div>
         </div>
         </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    
 {% endblock %}
