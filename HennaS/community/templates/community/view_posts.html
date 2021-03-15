@@ -13,12 +13,28 @@
             <p class="welcome logo-font pink text-center">Community</p>
         </div>
     </div>
-
 <div class="row">
-    <div class="col-12 text-center">
-        <a class="btn btn-default border-black mt-4 mb-5" href="{% url 'add_post' %}"> CREATE A POST <i class="fas fa-plus pink"></i></a>
+    <div class="col-sm-12 col-md-6 offset-md-3">
+        <form method="GET" action="{% url 'view_posts' %}">
+            <div class="input-group w-100">
+                <input class="form-control border border-black" type="text" name="q" placeholder="Search">
+                <div class="input-group-append">
+                    <button class="form-control btn btn-black border border-black" type="submit">
+                        <span class="icon">
+                            <i class="fas fa-search pink"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <a class="btn btn-default border-black mt-4 mb-5 float-left" href="{% url 'add_post' %}"> CREATE A POST <i class="fas fa-plus pink"></i></a>
+    </div>
+</div>
+
 <div class="row">
     {% for post in posts %}
     <div class="col-sm-12 col-md-6 col-lg-4 text-center">

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
 from profiles.models import UserProfile
@@ -17,6 +18,16 @@ def view_posts(request):
     except:
         user = None
         messages.info(request, 'You need to log in to add comments/posts.')
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any \
+                                         search criteria!")
+                return redirect(reverse('view_posts'))
+            queries = Q(heading__icontains=query) | Q(body__icontains=query)
+            posts = posts.filter(queries)
 
     if request.method == 'POST':
         form = CommentForm(request.POST)
