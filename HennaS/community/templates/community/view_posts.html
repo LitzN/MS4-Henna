@@ -9,8 +9,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-10 offset-1">
-            <p class="welcome logo-font pink text-center">Community</p>
+        <div class="col-10 offset-1 text-center">
+            <a class="welcome logo-font pink mt-2 mb-3" href="{% url 'view_posts' %}">Community</a>
         </div>
     </div>
 <div class="row">
@@ -31,7 +31,10 @@
 </div>
 <div class="row">
     <div class="col-sm-12 text-center">
-        <a class="btn btn-default border-black mt-4 mb-5 float-left" href="{% url 'add_post' %}"> CREATE A POST <i class="fas fa-plus pink"></i></a>
+        <a class="btn btn-default border-black mt-4 mb-5 float-left" href="{% url 'add_post' %}"><strong>CREATE A POST</strong> <i class="fas fa-plus pink"></i></a>
+        {% if "q=" in request.get_full_path %}
+            <a class="btn btn-default border-black float-right mt-4 mb-5" href="{% url 'view_posts' %}"><strong> RESET SEARCH</strong></a>
+        {% endif %}
     </div>
 </div>
 
@@ -52,9 +55,12 @@
                     <a class="text-danger small" href="{% url 'delete_post' post.id %}"> Delete</a>
                     <a class="small" href="{% url 'edit_post' post.id %}"> Edit </a>
                     {% endif %}
-                    <hr class="pink">
                 </h6>
-                <p class="card-text">{{ post.body }}</p>
+                <button class="btn mt-3 mb-3 float-right" type="button" data-toggle="collapse" data-target="#body{{ post.id }}" aria-expanded="false" aria-controls="body{{ post.id }}">
+                    <i class="fas fa-caret-down fa-lg pink"></i>
+                </button>
+                <hr class="pink">
+                <div class="collapse" id="body{{ post.id }}"> <p class="card-text">{{ post.body }}</p>
                 {% if request.user.is_authenticated %}
                 <button class="btn border-black mt-3 mb-3" type="button" data-toggle="collapse" data-target="#collapseExample{{ post.id }}" aria-expanded="false" aria-controls="collapseExample">
                     Comment <i class="fas fa-plus pink"></i>
@@ -97,6 +103,7 @@
                                     </form>
                                 </div>
                             </div>
+
                             {% endif %}
                         </div>
                     </div>
@@ -104,6 +111,7 @@
                     {% endif %} 
                 {% endfor %}
             </div>
+        </div>
         </div>
     </div>
     {% endfor %}
