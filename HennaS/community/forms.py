@@ -11,6 +11,12 @@ class PostForm(forms.ModelForm):
             label='Image', required=False)
 
 
+def __init__(self, *args, **kwargs):
+    super().__init__(*args, **kwargs)
+    for field in self.fields:
+        self.field[field].label = False
+
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment

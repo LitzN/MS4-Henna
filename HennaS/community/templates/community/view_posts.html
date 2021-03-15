@@ -65,11 +65,27 @@
                         <div class="col-9 comment-body">
                             <p>{{ comment.body }}</p>
                             {% if user == comment.user_profile %}
-                            <a class="small float-right text-danger" href="{% url 'delete_comment' comment.id %}">delete</a>
+                            <a  class="btn-sm small float-right text-danger btn" href="{% url 'delete_comment' comment.id %}">Delete</a>
+                             <button class="btn btn-sm small text-info" type="button" data-toggle="collapse" data-target="#collapse{{ comment.id }}" aria-expanded="false" aria-controls="collapseExample">
+                                Edit
+                            </button>
+                            <div class="collapse" id="collapse{{ comment.id }}">
+                                <div class="card card-body">
+                                    <form class="mt-3" action="{% url 'edit_comment' comment.id %}" method="POST" id="edit_comment">
+                                        {% csrf_token %}
+                                        <label for="body">Edit Comment:</label><br>
+                                        <textarea class="edit-comment" type="text" name="body">{{ comment.body }}</textarea>
+                                        <input type="hidden" name="user_profile" value="{{ user.id }}">
+                                        <input type="hidden" name="for_post" value="{{ post.id }}">
+                                        <button class="btn btn-default border-black" type="submit">Post <i class="fas fa-comment pink"></i></button>
+                                    </form>
+                                </div>
+                            </div>
                             {% endif %}
                         </div>
                     </div>
-                    {% endif %}
+
+                    {% endif %} 
                 {% endfor %}
             </div>
         </div>
@@ -82,4 +98,9 @@
     </div>
 </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+
 {% endblock %}

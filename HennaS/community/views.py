@@ -80,6 +80,7 @@ def edit_post(request, post_id):
     context = {
         'form': form,
         'post': post,
+        'user': user,
     }
     return render(request, template, context)
 
@@ -104,3 +105,18 @@ def delete_post(request, post_id):
     else:
         messages.error(request, 'Sorry, you can only delete your own posts.')
     return redirect(reverse('view_posts'))
+
+
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Comment updated!")
+            return redirect(reverse('view_posts'))
+        else:
+            messages.error(request, 'Comment update failed. Please check form is valid.')
+    else:
+        form = CommentForm(instance=comment)
+        messages.info(request, f'You are editing {comment.body}')

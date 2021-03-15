@@ -233,6 +233,11 @@ a.category-badge > span.badge:hover{
     font-size:2rem;
 }
 
+.edit-comment{
+    overflow:scroll;
+    max-width:100%;
+}
+
 /*------Product Form-----------*/
 .btn-file{
     position:relative;
