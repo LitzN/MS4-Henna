@@ -25,3 +25,4 @@ class CommentForm(forms.ModelForm):
     body = forms.CharField(
         label=None, required=True
     )
+

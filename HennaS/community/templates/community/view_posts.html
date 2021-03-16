@@ -79,7 +79,7 @@
                 {% endif %}
                 {% for comment in comments %}
                     {% if post.id == comment.for_post.id %}
-                    <div class="row comment w-100 {% if comment.user_profile.is_superuser %}gray-bg{% elif post.user_profile == comment.user_profile %}dark-pink-bg{% else %}pink-bg{% endif %}">
+                    <div class="row comment w-100 {% if comment.user_profile.user.is_superuser %}gray-bg{% elif post.user_profile == comment.user_profile %}dark-pink-bg{% else %}pink-bg{% endif %}">
                         <div class="col-3">
                             <p class="small p-0 pt-4 white"><i class="fas fa-user white fa-lg"></i><br>
                             {{ comment.user_profile }}</p>

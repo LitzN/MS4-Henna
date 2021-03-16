@@ -21,3 +21,11 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.id
+
+
+class Like(models.Model):
+    for_post = models.ForeignKey('Post', null=False, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.count
