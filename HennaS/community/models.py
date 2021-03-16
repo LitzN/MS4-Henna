@@ -24,8 +24,9 @@ class Comment(models.Model):
 
 
 class Like(models.Model):
-    for_post = models.ForeignKey('Post', null=False, on_delete=models.CASCADE)
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    post = models.ForeignKey('Post', null=False, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+                             UserProfile, null=False, on_delete=models.CASCADE, related_name='likes')
 
     def __str__(self):
-        return self.count
+        return str(self.id)

@@ -238,6 +238,16 @@ a.category-badge > span.badge:hover{
     max-width:100%;
 }
 
+.post-img{
+    max-width:300px;
+    float:right;
+}
+
+.post-text{
+    max-width:300px;
+    text-align:justify;
+}
+
 
 /*------Product Form-----------*/
 .btn-file{

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="buffer"></div>
+    <div class="row">
+            <div class="col-12">
+                <div class="pattern-border border-top"></div>
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="col-10 offset-1">
+            <h2 class=" text-center">{{ post.heading }}</h2>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {% if post.image %}
+                    <img class="img-responsive post-img" src="{{ post.image.url }}" alt="Card image cap">
+                {% endif %}
+            </div>
+            <div class="col-6">
+                <p class="post-text">{{ post.body }}</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="pattern-border border-bottom mt-3"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from .models import Post, Comment
+from .models import Post, Comment, Like
 from profiles.models import UserProfile
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, LikeForm
 
 from django.contrib import messages
 
@@ -13,6 +13,7 @@ def view_posts(request):
     template = 'community/view_posts.html'
     posts = Post.objects.all()
     comments = Comment.objects.all()
+    likes = Like.objects.all()
     try:
         user = get_object_or_404(UserProfile, user=request.user)
     except:
@@ -43,8 +44,41 @@ def view_posts(request):
         'form': form,
         'comments': comments,
         'user': user,
+        'likes': likes,
     }
     return render(request, template, context)
+
+
+def post_detail(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    template = 'community/post_detail.html'
+    context = {
+        'post': post,
+    }
+    return render(request, template, context)
+
+
+def like(request, post_id):
+    if request.method == 'POST':
+        form = LikeForm(request.POST)
+        user = get_object_or_404(UserProfile, user=request.user)
+        post = get_object_or_404(Post, id=post_id)
+        if form.is_valid():
+            liked = Like.objects.filter(user=user, post=post).exists()
+            if liked:
+                liked = Like.objects.filter(user=user, post=post)
+                liked.delete()
+                messages.success(request, "Unliked!")
+                return redirect(reverse('view_posts'))
+            else:
+                form.save()
+                messages.success(request, 'Liked!')
+                return redirect(reverse('view_posts'))
+        else:
+            messages.error(request, "Something went wrong. Please try again later")
+            return redirect(reverse('view_posts'))
+    else:
+        form = LikeForm()
 
 
 @login_required
