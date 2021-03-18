@@ -14,6 +14,7 @@ def view_posts(request):
     posts = Post.objects.all()
     comments = Comment.objects.all()
     likes = Like.objects.all()
+
     try:
         user = get_object_or_404(UserProfile, user=request.user)
     except:
@@ -30,18 +31,8 @@ def view_posts(request):
             queries = Q(heading__icontains=query) | Q(body__icontains=query)
             posts = posts.filter(queries)
 
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Comment Added!')
-        else:
-            messages.error(request, "Post couldn't be added. Please check over your form.")
-    else:
-        form = CommentForm()
     context = {
         'posts': posts,
-        'form': form,
         'comments': comments,
         'user': user,
         'likes': likes,
@@ -50,10 +41,33 @@ def view_posts(request):
 
 
 def post_detail(request, post_id):
+    try:
+        user = get_object_or_404(UserProfile, user=request.user)
+    except:
+        user = None
     post = get_object_or_404(Post, id=post_id)
+    comments = Comment.objects.filter(for_post=post)
+    likes = Like.objects.filter(post=post_id)
+    like_count = likes.count()
+    comment_count = comments.count()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Comment Added!')
+            return redirect(reverse('post_detail', args=[post.id]))
+        else:
+            messages.error(request, "Post couldn't be added. Please check over your form.")
+    else:
+        form = CommentForm()
+
     template = 'community/post_detail.html'
     context = {
         'post': post,
+        'comments': comments,
+        'user': user,
+        'like_count': like_count,
+        'comment_count': comment_count,
     }
     return render(request, template, context)
 
@@ -69,14 +83,14 @@ def like(request, post_id):
                 liked = Like.objects.filter(user=user, post=post)
                 liked.delete()
                 messages.success(request, "Unliked!")
-                return redirect(reverse('view_posts'))
+                return redirect(reverse('post_detail', args=[post.id]))
             else:
                 form.save()
                 messages.success(request, 'Liked!')
-                return redirect(reverse('view_posts'))
+                return redirect(reverse('post_detail', args=[post.id]))
         else:
             messages.error(request, "Something went wrong. Please try again later")
-            return redirect(reverse('view_posts'))
+            return redirect(reverse('post_detail', args=[post.id]))
     else:
         form = LikeForm()
 
@@ -133,9 +147,11 @@ def edit_post(request, post_id):
 def delete_comment(request, comment_id):
     user = get_object_or_404(UserProfile, user=request.user)
     comment = get_object_or_404(Comment, id=comment_id)
-    if user == comment.user_profile:
+    post = comment.for_post
+    if user == comment.user_profile or user.user.is_superuser:
         comment.delete()
         messages.success(request, 'Comment Deleted!')
+        return redirect(reverse('post_detail', args=[post.id]))
     else:
         messages.error(request, 'Sorry, you can only delete your own comments.')
     return redirect(reverse('view_posts'))
@@ -154,12 +170,13 @@ def delete_post(request, post_id):
 
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
+    post = comment.for_post
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
             messages.success(request, "Comment updated!")
-            return redirect(reverse('view_posts'))
+            return redirect(reverse('post_detail', args=[post.id]))
         else:
             messages.error(request, 'Comment update failed. Please check form is valid.')
     else:

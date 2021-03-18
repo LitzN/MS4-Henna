@@ -24,6 +24,7 @@ body{
     background-color:#ffb6c1;
 }
 
+
 .gray-bg{
     background-color:#d6d7d7;
 }
@@ -35,6 +36,7 @@ body{
 .comment{
     border-top:#d6d7d7 solid 1px;
     border-bottom:#d6d7d7 solid 1px;
+    border-right:#d6d7d7 solid 1px;
     min-width:inherit;
 }
 
@@ -240,11 +242,10 @@ a.category-badge > span.badge:hover{
 
 .post-img{
     max-width:300px;
-    float:right;
+
 }
 
 .post-text{
-    max-width:300px;
     text-align:justify;
 }
 
