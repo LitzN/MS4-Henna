@@ -237,7 +237,7 @@ a.category-badge > span.badge:hover{
 
 .edit-comment{
     overflow:scroll;
-    max-width:100%;
+    min-width:80%;
 }
 
 .post-img{
@@ -248,6 +248,12 @@ a.category-badge > span.badge:hover{
 .post-text{
     text-align:justify;
 }
+
+.pink-button:hover{
+    background-color: #ffb6c1;
+    color:white;
+}
+
 
 
 /*------Product Form-----------*/

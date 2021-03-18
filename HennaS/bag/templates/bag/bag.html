@@ -4,15 +4,15 @@
 
 {% block content %}
 <div class="buffer"></div>
-<div class="container m-0">
+<div class="container">
     <div class="row">
         <div class="col-10 offset-1">
-            <p class="welcome logo-font pink text-center">Shopping bag</p>
+            <p class="welcome logo-font pink text-center mt-5 mb-4">Shopping bag</p>
             <hr>
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-10 offset-1">
             {% if bag_items %}
                 <div class="table-responsive rounded">
                     <table class="table table-sm table-borderless">
@@ -71,8 +71,8 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <a class="update-link text-info"><small>Update</small></a>
                                     <a class="remove-link text-danger" id="remove_{{ item.item_id }}" data-product_colour="{{ item.colour }}"><small>Remove</small></a>
+                                    <a class="update-link text-info "><small>Update</small></a>
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -93,13 +93,13 @@
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <a href="{% url 'products' %}" class="btn rounded-0 btn-lg">
+                                    <a href="{% url 'products' %}" class="btn float-left btn-lg">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                                    <a href="{% url 'checkout' %}" class="btn btn-black border-black pink-button btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -120,10 +120,10 @@
             {% endif %}
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 p-0">
-            <div class="pattern-border border-bottom"></div>
-        </div>
+</div>
+<div class="row">
+    <div class="col-12 p-0">
+        <div class="pattern-border border-bottom"></div>
     </div>
 </div>
 

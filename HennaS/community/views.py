@@ -21,6 +21,10 @@ def view_posts(request):
         user = None
         messages.info(request, 'You need to log in to add comments/posts.')
 
+
+    for post in posts:
+        post.likes = Like.objects.filter(post=post.id).count()
+
     if request.GET:
         if 'q' in request.GET:
             query = request.GET['q']
