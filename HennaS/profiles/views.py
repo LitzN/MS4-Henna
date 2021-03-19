@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 
 from .models import UserProfile
 from .forms import UserProfileForm
+from community.models import Post, Like
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -12,6 +13,7 @@ from checkout.models import Order
 def profile(request):
     """ Display user profile"""
     profile = get_object_or_404(UserProfile, user=request.user)
+    liked_posts = Like.objects.filter(user=profile)
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -28,6 +30,7 @@ def profile(request):
         'form': form,
         'orders': orders,
         'on_profile_page': True,
+        'liked_posts': liked_posts,
     }
     return render(request, template, context)
 

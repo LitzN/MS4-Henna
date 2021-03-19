@@ -118,6 +118,10 @@ body{
     padding:.5rem .5rem !important;
 }
 
+.prod-links{
+    font-size:x-large;
+}
+
 .button-shop{
     background: url('/media/button-shop.png') no-repeat;
     background-size:contain;
@@ -254,6 +258,10 @@ a.category-badge > span.badge:hover{
     color:white;
 }
 
+.pink-border{
+    border: #ffb6c1 2px solid;
+    border-radius:25px;
+}
 
 
 /*------Product Form-----------*/
@@ -303,17 +311,30 @@ a.category-badge > span.badge:hover{
     .product-buffer{
         min-height:6rem;
     }
+
+    .button-text{
+        left:40%;
+    }
+}
+
+/*------MED MOBILE----------------*/
+@media (max-width:376px){
+    .button-text{
+        left:45%;
+    }
 }
 /*------SMALL MOBILE------------*/
 @media (max-width:320px){
     .button-text{
         top:65%;
+        left:50%;
     }
 
     .product-buffer{
-        min-height:10rem;
+        min-height:6rem;
     }
 }
+
 /*-----TABLET--------------*/
 @media (min-width: 768px){
     .button-text{
@@ -368,7 +389,7 @@ a.category-badge > span.badge:hover{
   }
   .button-text{
         top: 70%;
-        left: 45%;
+        left: 50%;
   }
 }
 
