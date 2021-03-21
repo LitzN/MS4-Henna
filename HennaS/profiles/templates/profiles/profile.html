@@ -30,7 +30,7 @@
                 <a class="btn w-100" data-toggle="collapse" href="#order-history" role="button" aria-expanded="false" aria-controls="order-history">
                     <p class="text-center mt-2 float-left welcome-text"><strong>Order History</strong></p><i class="fas fa-caret-down pink float-right fa-lg mt-3 mr-3"></i>
                 </a>
-                <div id="order-history" class="p-3">
+                <div id="order-history" class="p-3 collapse">
                     <div class="order-history table-responsive">
                         <table class="table table-sm table-borderless">
                             <thead>
@@ -45,7 +45,7 @@
                                 {% for order in orders %}
                                     <tr>
                                         <td>
-                                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}" class="pink">
                                                 {{ order.order_number|truncatechars:6 }}
                                             </a>
                                         </td>
@@ -72,17 +72,27 @@
                 <a class="btn w-100" data-toggle="collapse" href="#liked-posts" role="button" aria-expanded="false" aria-controls="liked-posts">
                     <p class="text-center mt-2 float-left welcome-text"><strong>Liked Posts</strong></p><i class="fas fa-caret-down pink float-right fa-lg mt-3 mr-3"></i>
                 </a>
-                <div id="liked-posts" class="text-center p-2 mb-2">
-                    {% for liked in liked_posts %}
-                        <div class="row">
-                            <div class="col-8">
-                                <a href="{% url 'post_detail' liked.post.id %}" class="p-2">{{ liked.post.heading }}</a>
+                <div id="liked-posts" class="collapse text-center p-2 mb-2">
+                    {% if liked_posts %}
+                        {% for liked in liked_posts %}
+                            <div class="row">
+                                <div class="col-8">
+                                    <a href="{% url 'post_detail' liked.post.id %}" class="p-2 post-link">{{ liked.post.heading }}</a>
+                                </div>
+                                <div class="col-4">
+                                    <form action="{% url 'like' liked.post.id %}" method="POST" id="like">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="user" value="{{ liked.user.id }}">
+                                    <input type="hidden" name="post" value="{{ liked.post.id }}">
+                                    <button class="btn btn-default" type="submit">
+                                        <strong class="pink"><i class="fas fa-times pink"></i></strong></button>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="col-4">
-                                
-                            </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                    {% else %}
+                    <p> You have no liked posts yet! <br><a class="pink" href="{% url 'view_posts' %}">View all</a></p>
+                    {% endif %}
                 </div>
             </div>
         </div>

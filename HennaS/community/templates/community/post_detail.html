@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="container-fluid">
-    <div class="buffer"></div>
+    <div class="product-buffer"></div>
     <!--BORDER IMAGE.......................-->
     <div class="row">
         <div class="col-12">
@@ -38,7 +38,7 @@
                             <button class="btn btn-default" type="submit">
                                 <strong class="pink"><i class="fas fa-thumbs-up pink"></i> Like/Unlike<br> {{ like_count }} </strong></button>
                         </form>
-                        <p class="pink"><strong></strong></p>
+                        
                         {% else %}
                         <i class="fas fa-thumbs-up pink"></i><p class="pink"><strong>{{ like_count }}</strong></p>
                     {% endif %}
